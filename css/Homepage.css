@@ -32,20 +32,27 @@
      font-size: 16spx;
 }
 
-footer{
-    background-color:  #f2e9e4;
+.footer{
+   background-color:  #f2e9e4;
     font-family: 'Courgette', cursive;
-    font-size: larger;
+    font: size 70px;
     font-weight: bold;
     color: #ff3377;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 0.3em;
     
 }
 
-.social-icons li{
-    list-style: none;
-    display: inline;
-    padding: 0.5rem;
+
+#out
+{
+    text-align: left;
+}
+
+#outr
+{
+    float:right;
+}
+
+a.imagelink{
+    text-decoration:none;
 }
