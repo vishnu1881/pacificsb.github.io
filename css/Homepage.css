@@ -1,0 +1,16 @@
+#bank_header
+{
+    background-color: #ff3377;
+    text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    padding: 0.3cm;
+    
+}
+
+body
+{
+    background: url(/images/bg.jpg);       
+}
