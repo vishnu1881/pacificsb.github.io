@@ -12,5 +12,19 @@
 
 body
 {
-    background: url(images/bg.jpg);       
+    background: url(../images/bg.jpg);       
+}
+
+.footer{
+    font-family: 'Courgette', cursive;
+    font-size: larger;
+    font-weight: bold;
+    color: #ff3377;
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:#143d59;
+   
+   text-align: center;;
 }
