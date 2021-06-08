@@ -14,12 +14,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<style>
+
+table{
+        text-align: center;
+        border:4px solid black;
+        border-collapse: collapse;
+        width: 100%;
+        height: 90px;
+        background-color:#42D7CD;
+        
+        
+    }
+    th{
+        border-collapse: collapse;
+        border: 2px solid black;
+        font-family: 'Libre Baskerville', serif;
+        font-weight: 35px;
+        font-size: 30px;
+        height: 45px;
+        width: 60px;
+        color:green;
+        
+        
+
+    }
+    th:hover{
+        background-color: black;
+    }
+    td{
+        border-collapse: collapse;
+        border: 2px solid black;
+        width: 60px;
+        height: 45px;
+        font-size:25px;
+        font-weight:;
+        font-family: 'Libre Baskerville', serif;
+        color:red;
+
+    }
+    td:hover{
+        background-color:#F08080;
+    }
+
+</style>
 
     </head>
     <body>
-      
-
-      
 	<div class="header">
      
 		<div class="navbar">
@@ -34,34 +75,56 @@
             
         </div>
     </div>
+
+
 <br>
     <div class="marq">
         <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
     </div>
     
-    <div class="container-fluid">
-          
-        
-              <div class="row activity text-center">
-                <div class="col-md act">
-                      <img src="images/transaction.png" class="img-fluid" width="410" height="410">
-                      <br><br>
-                      <a href="transfermoney.php"><button>MAKE A TRANSACTION</button></a>
-                    </div>
-                    <div class="col-md act">
-                        <img src="images/customers.png" class="img-fluid" width="410" height="410">
-                        <br><br>
-                        <a href="customersdata.php"><button>CUSTOMERS</button></a>
-                      </div>
-                    <div class="col-md act">
-                      <img src="images/transachistory.png" class="img-fluid" width="410" height="410">
-                      <br><br>                    
-                      <a href="transactionhistory.php"><button>TRANSACTION HISTORY</button></a>
-                    </div>
-              </div>
-        </div>
+
+    <?php
+$host="localhost";
+$user="root";
+$password="";
+$dbname="customers";
+$con=mysqli_connect($host,$user,$password,$dbname);
+if($con==false)
+    {
+        die("ERROR:Could not Connect.".mysqli_connect_error());
+    }
+    $sql="select * from customer_details";
+    $query=mysqli_query($con,$sql);
+    if(!$query)
+    {
+        die("ERROR:Could not Connect.".mysqli_connect_error());
+    }
+    echo  " <br> 
+    <table>
+    <tr>
+    <th>SNo</th>
+    <th>NAME</th>
+    <th>EMAIL ID</th>
+    <th>PHONE NO</th>
+    <th>BALANCE</th>
+</tr>";
+while ($row=mysqli_fetch_array($query)) {
+
+    echo "<tr>
+    <td>".$row['SNO']."</td>
+    <td>".$row['NAME']."</td>
+    <td>".$row['EMAIL']."</td>
+    <td>".$row['PHONENO']."</td>
+    <td>".$row['BALANCE']."</td>
+    </tr>";
+}
+mysqli_close($con);
+?>
+
 
 <br>
+
+<footer class="text-center mt-5 py-2">
 <div class="footer">
     <div id="contact">
         <p id="out">
@@ -79,9 +142,7 @@
           </p>
     </div>
 </div>
+</footer>
 
 </body>
 </html>
-
-
-    

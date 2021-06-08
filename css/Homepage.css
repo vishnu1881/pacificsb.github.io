@@ -81,9 +81,44 @@ a.imagelink{
     
 }  
 
+button{
+	border:none;
+	border-radius: 8px;
+	padding: 14px;
+	background:#7B8788; 
+	color:white;
+	letter-spacing: 2px;
+	font-size: 16px;
+	transition: 0.5s;
+}
+button:hover,h1:hover{
+	transform: scale(1.1);
+}
+button:hover{
+	background-color:#4C4B4B;
+}
+
+.maindiv
+{
+    align-items: center;
+}
 
 @media screen and (max-width: 500px) {
     .navbar a {
       float: none;
       display: block;
+    }
+
+
+
+
+
+    .maindiv {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #ff8899;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
     }
