@@ -19,6 +19,7 @@ body{
     font-weight: bold;
     color: #ff3377;
     padding: 0.1%;
+    bottom: 0px;
     
 }
 
@@ -108,12 +109,17 @@ button:hover{
       float: none;
       display: block;
     }
+}
 
+.cdata
+{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+}
 
-
-
-
-    .maindiv {
+.maindiv {
         width: 300px;
         height: 300px;
         border: 1px solid #ff8899;
@@ -121,4 +127,13 @@ button:hover{
         justify-content: center;
         align-items: center;
         
-    }
+}
+
+.formm
+{
+    color: red;
+    text-align: center;
+    align-items: center;
+}
+
+

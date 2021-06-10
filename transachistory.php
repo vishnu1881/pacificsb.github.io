@@ -57,9 +57,11 @@ table{
     }
 
 </style>
-
     </head>
-    <body>
+<body>
+      
+
+      
 	<div class="header">
      
 		<div class="navbar">
@@ -70,13 +72,12 @@ table{
             <a class = "navicons" href="transfer.php">Transfer</a>
             <a class = "navicons" href="transachistory.php">Transaction History</a>
             <a class = "navicons" href="customersdata.php">Customers</a>
-            <a class = "navicons" href="#contact">About</a>       
+            <a class = "navicons" href="#contact">About</a>         
             
         </div>
     </div>
 
-<br>
-    <div class="marq">
+    div class="marq">
         <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
     </div>
     
@@ -91,7 +92,7 @@ if($con==false)
     {
         die("ERROR:Could not Connect.".mysqli_connect_error());
     }
-    $sql="select * from customer_details";
+    $sql="select * from transfer_history";
     $query=mysqli_query($con,$sql);
     if(!$query)
     {
@@ -101,19 +102,19 @@ if($con==false)
     <table>
     <tr>
     <th>SNo</th>
-    <th>NAME</th>
-    <th>EMAIL ID</th>
-    <th>PHONE NO</th>
-    <th>BALANCE</th>
+    <th>FROM</th>
+    <th>TO</th>
+    <th>AMOUNT DEPOSITED</th>
+    <th>TIME AND DATE</th>
 </tr>";
 while ($row=mysqli_fetch_array($query)) {
 
     echo "<tr>
-    <td>".$row['SNO']."</td>
-    <td>".$row['NAME']."</td>
-    <td>".$row['EMAIL']."</td>
-    <td>".$row['PHONENO']."</td>
-    <td>".$row['BALANCE']."</td>
+    <td>".$row['sno']."</td>
+    <td>".$row['sender']."</td>
+    <td>".$row['receiver']."</td>
+    <td>".$row['amount_dep']."</td>
+    <td>".$row['date_time']."</td>
     </tr>";
 }
 mysqli_close($con);
@@ -142,5 +143,6 @@ mysqli_close($con);
 </div>
 </footer>
 
-</body>
+
+ </body>
 </html>
