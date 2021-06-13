@@ -14,6 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
 <style>
 table{
         text-align: center;
@@ -80,23 +84,73 @@ table{
         <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
     </div>
     
+    <?php
+    include 'config.php';
+    $sql = "SELECT * FROM customer_details";
+    $result = mysqli_query($conn,$sql);
+?>
 
-<?php
-$host="localhost";
-$user="root";
-$password="";
-$dbname="customers";
-$con=mysqli_connect($host,$user,$password,$dbname);
-if($con==false)
-    {
-        die("ERROR:Could not Connect.".mysqli_connect_error());
-    }
-    $sql="select * from customer_details";
-    $query=mysqli_query($con,$sql);
-    if(!$query)
-    {
-        die("ERROR:Could not Connect.".mysqli_connect_error());
-    }
+<div class="container">
+        <h2 class="text-center pt-4" style="color : black;">Transfer Money</h2>
+        <br>
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive-sm">
+                    <table class="table table-hover table-striped table-sm">
+                        <thead style="color : white;" class="table-dark">
+                            <tr>
+                            <th scope="col" class="text-center py-2">SNo</th>
+                            <th scope="col" class="text-center py-2">Name</th>
+                            <th scope="col" class="text-center py-2">E-Mail</th>
+                            <th scope="col" class="text-center py-2">Phone NO</th>
+                            <th scope="col" class="text-center py-2">Balance</th>
+                            <th scope="col" class="text-center py-2">Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                <?php 
+                    while($rows=mysqli_fetch_assoc($result)){
+                ?>
+                    <tr style="color : black;">
+                        <td class="py-2"><?php echo $rows['SNO'] ?></td>
+                        <td class="py-2"><?php echo $rows['NAME']?></td>
+                        <td class="py-2"><?php echo $rows['EMAIL']?></td>
+                        <td class="py-2"><?php echo $rows['PHONENO']?></td>
+                        <td class="py-2"><?php echo $rows['BALANCE']?></td>
+                        <td><a href="userdetails.php?id= <?php echo $rows['SNO'] ;?>"> <button class="btn btn-outline-dark btn">View and Transact</button></a></td> 
+                    </tr>
+                <?php
+                    }
+                ?>
+            
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div> 
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
     echo  " <br> 
     <table>
     <tr>
@@ -114,13 +168,14 @@ while ($row=mysqli_fetch_array($query)) {
     <td>".$row['EMAIL']."</td>
     <td>".$row['PHONENO']."</td>
     <td>".$row['BALANCE']."</td>
+    <td><a href="userdetails.php?id= <?php echo $rows['id'] ;?>"> <button class="btn btn-outline-dark btn">View and Transact</button></a></td> 
     </tr>";
 }
 mysqli_close($con);
 ?>
+-->
 
 
-<br>
 
 <footer class="text-center mt-5 py-2">
 <div class="footer">
