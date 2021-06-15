@@ -1,7 +1,5 @@
-
-
 body{
-    /*background: url(../images/bg.png);*/
+    
     background: url(https://wallpaperaccess.com/full/327139.jpg);
     color: #f2e9e4;
 }
@@ -18,62 +16,33 @@ body{
     font-family: 'Courgette', cursive;
     font-size: 30px;
     font-weight: bold;
-    color: #ff3377;
+    color: #ffc107;
     padding: 0.1%;
     bottom: 0px;
     
+    
 }
 
-
-#out
-{
-    text-align: left;
+.foot{
+    
+    font-family: 'Courgette', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffc107;
+    padding: 0.1%;
+    bottom: 0px;
+    
+    
 }
-
-#outr
-{
-    float:right;
-    color:white;
+h2{
+    color: white;
+    text-align: center;
 }
 
 a.imagelink{
     text-decoration:none;
 }
 
-.navbar a.navicons:hover {
-    background-color: #000;
-  }
-
-  .navbar 
-{
-    background-color: #143d59;
-    text-align: center;
-    color: black;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0cm;
-    width: 100%;
-    overflow: auto;
-    
-}
-
-.navlogo
-{
-    float: left;
-}
-
-
-  
-   .navbar a.navicons {
-    float: right;
-    text-align: center;
-    padding: 12px;
-    border: 1cm;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
 
 .marq marquee
 {
@@ -100,10 +69,57 @@ button:hover{
 	background-color:#4C4B4B;
 }
 
-.maindiv
-{
-    align-items: center;
+.c1{
+	border:none;
+	border-radius: 8px;
+	padding: 14px;
+	background:#ffc107; 
+	color:black;
+	letter-spacing: 2px;
+	font-size: 16px;
+	transition: 0.5s;
 }
+
+.c2{
+	border:none;
+	border-radius: 8px;
+	padding: 14px;
+	background:#0dcaf0; 
+	color:black;
+	letter-spacing: 2px;
+	font-size: 16px;
+	transition: 0.5s;
+}
+.c3{
+	border:none;
+	border-radius: 8px;
+	padding: 14px;
+	background:#473080; 
+    color:#e6e7e8;
+	letter-spacing: 2px;
+	font-size: 16px;
+	transition: 0.5s;
+}
+
+button{
+	border:none;
+	border-radius: 8px;
+	padding: 14px;
+	background:#7B8788; 
+	color:white;
+	letter-spacing: 2px;
+	font-size: 16px;
+	transition: 0.5s;
+}
+button:hover,h1:hover{
+	transform: scale(1.1);
+}
+button:hover{
+	background-color:#4C4B4B;
+    color: white;
+}
+
+
 
 @media screen and (max-width: 500px) {
     .navbar a {
@@ -128,13 +144,6 @@ button:hover{
         justify-content: center;
         align-items: center;
         
-}
-
-.formm
-{
-    color: red;
-    text-align: center;
-    align-items: center;
 }
 
 

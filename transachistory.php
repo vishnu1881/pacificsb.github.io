@@ -21,7 +21,7 @@ table{
         border-collapse: collapse;
         width: 100%;
         height: 90px;
-        background-color:#42D7CD;
+        
         
         
     }
@@ -33,7 +33,7 @@ table{
         font-size: 30px;
         height: 45px;
         width: 60px;
-        color:green;
+        
         
         
 
@@ -49,12 +49,10 @@ table{
         font-size:25px;
         font-weight:;
         font-family: 'Libre Baskerville', serif;
-        color:red;
+        
 
     }
-    td:hover{
-        background-color:#F08080;
-    }
+    
 
 </style>
     </head>
@@ -79,25 +77,20 @@ table{
               <li><a href="#contact" class="nav-link px-2 text-white">About</a></li>
             </ul>    
             <div class="text-end">
-              <a href="customersdata.php"><button type="button" class="btn btn-outline-light me-2">Transfer</button></a>              
+              <a href="customersdata.php"><button type="button" class="btn btn-outline-warning">Transfer</button></a>              
             </div>
           </div>
         </div>
       </header> 
 <br>
- <div class="marq">
-     <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
- </div>
-
-
     <div class="container">
-        <h2 class="text-center pt-4" style="color : black;">Transaction History</h2>
+        <h2 class="text-center pt-4" ">Transaction History</h2>
         
        <br>
 
     
        <div class="table-responsive-sm">
-    <table class="table table-hover table-striped">
+    <table class="table table-hover">
         <thead style="color : white;" class="table-dark">
             <tr>
                 <th class="text-center">Sender</th>
@@ -119,10 +112,10 @@ while($rows = mysqli_fetch_assoc($query))
 {
 ?>
 <tr style="color : black;">
-            <td class="py-2"><?php echo $rows['sender']; ?></td>
-            <td class="py-2"><?php echo $rows['receiver']; ?></td>
-            <td class="py-2"><?php echo $rows['amount_transf']; ?> </td>
-            <td class="py-2"><?php echo $rows['date_time']; ?> </td>
+            <td class="table-light"><?php echo $rows['sender']; ?></td>
+            <td class="table-light"><?php echo $rows['receiver']; ?></td>
+            <td class="table-light"><?php echo $rows['amount_transf']; ?> </td>
+            <td class="table-light"><?php echo $rows['date_time']; ?> </td>
                 
         <?php
             }
@@ -134,40 +127,28 @@ while($rows = mysqli_fetch_assoc($query))
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-    
+   
 
 
 <br>
 
-<footer class="text-center mt-5 py-2">
-<div class="footer">
-    <div id="contact">
-        <p id="out">
-            &#169; 2021 <emp>VISHNU</emp> 
 
-              <span id="outr">Contact Me:&nbsp; <a class="imagelink" href="https://www.linkedin.com/in/vishnu-v-88021b1b5/" target="_blank">
-                <img src="images/lnlogo.png" width=40 height=40 alt=" linkedin profile link"> 
-            </a>
-            &nbsp;
-            
-            <a class="imagelink" href="https://github.com/vishnu1881/" target="_blank">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=40 height=40 alt="linkedin profile link"> </a>
-            </span>
-
-          </p>
+<footer class="text-muted py-5">
+    <div class="footer">
+        <div id="contact">      
+            <div class="container">
+                <p class="float-end mb-1">
+                    Contact Me:&nbsp; <a class="imagelink" href="https://www.linkedin.com/in/vishnu-v-88021b1b5/" target="_blank">
+                    <img src="images/lnlogo.png" width=50 height=40 alt=" linkedin profile link"> 
+                    </a>
+                    <a class="imagelink" href="https://github.com/vishnu1881/" target="_blank">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=40 height=40 alt="linkedin profile link"> </a>
+                </p>
+                <p class="mb-1"> &copy; 2021</p>
+            </div>
+        </div>
     </div>
-</div>
 </footer>
-
 
  </body>
 </html>

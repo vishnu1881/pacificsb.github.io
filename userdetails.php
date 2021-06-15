@@ -121,20 +121,18 @@ if(isset($_POST['submit']))
               <li><a href="#contact" class="nav-link px-2 text-white">About</a></li>
             </ul>    
             <div class="text-end">
-              <a href="customersdata.php"><button type="button" class="btn btn-outline-light me-2">Transfer</button></a>              
+              <a href="customersdata.php"><button type="button" class="btn btn-outline-warning">Transfer</button></a>              
             </div>
           </div>
         </div>
       </header> 
- <br>
-     <div class="marq">
-         <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
-     </div>
+ 
 <!-- End Navbar -->
 
   <!-- Table -->
+  <br><br>
   <div class="container">
-        <h2 class="text-center pt-4" style="color : black;">Transaction</h2>
+        <h2>Transaction</h2>
             <?php
                 include 'config.php';
                 $sid=$_GET['id'];
@@ -157,15 +155,15 @@ if(isset($_POST['submit']))
                             <th scope="col" class="text-center py-2">Balance</th>
                             </tr>
                         
-                    <tr style="color : black;">                        
-                        <td class="py-2"><?php echo $rows['NAME']?></td>
-                        <td class="py-2"><?php echo $rows['EMAIL']?></td>                        
-                        <td class="py-2"><?php echo $rows['BALANCE']?></td>
+                    <tr style="color : black; text-align : center">                        
+                        <td class="table-light"><?php echo $rows['NAME']?></td>
+                        <td class="table-light"><?php echo $rows['EMAIL']?></td>                        
+                        <td class="table-light"><?php echo $rows['BALANCE']?></td>
                         </tr>
             </table>
         </div>
         <br><br><br>
-        <label style="color : black;"><b>Transfer To:</b></label>
+        <label style="color : white;"><b>Transfer To:</b></label>
         <select name="to" class="form-control" required>
             <option value="" disabled selected>Choose</option>
             <?php
@@ -192,36 +190,34 @@ if(isset($_POST['submit']))
         </select>
         <br>
         <br>
-            <label style="color : black;"><b>Amount:</b></label>
-            <input type="number" class="form-control" name="amount" required>   
+            <label style="color : white;"><b>Amount:</b></label>
+            <input type="text" class="form-control" name="amount" required>   
             <br><br>
                 <div class="text-center" >
-                <button class="btn btn-outline-dark" name="submit" type="submit" id="myBtn" >Transfer</button>
+                
+                <button class="btn btn-outline-warning" name="submit" type="submit" id="myBtn" >Transfer</button>
             </div>
         </form>
     </div>
 <!-- End Table -->
 
     <!-- Footer -->
-  
+<footer class="text-muted py-5">
     <div class="footer">
-    <div id="contact">
-        <p id="out">
-            &#169; 2021 <emp>VISHNU</emp> 
-
-              <span id="outr">Contact Me:&nbsp; <a class="imagelink" href="https://www.linkedin.com/in/vishnu-v-88021b1b5/" target="_blank">
-                <img src="images/lnlogo.png" width=40 height=40 alt=" linkedin profile link"> 
-            </a>
-            &nbsp;
-            
-            <a class="imagelink" href="https://github.com/vishnu1881/" target="_blank">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=40 height=40 alt="linkedin profile link"> </a>
-            </span>
-
-          </p>
+        <div id="contact">      
+            <div class="container">
+                <p class="float-end mb-1">
+                    Contact Me:&nbsp; <a class="imagelink" href="https://www.linkedin.com/in/vishnu-v-88021b1b5/" target="_blank">
+                    <img src="images/lnlogo.png" width=50 height=40 alt=" linkedin profile link"> 
+                    </a>
+                    <a class="imagelink" href="https://github.com/vishnu1881/" target="_blank">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=40 height=40 alt="linkedin profile link"> </a>
+                </p>
+                <p class="mb-1"> &copy; 2021</p>
+            </div>
+        </div>
     </div>
-</div>
-
+</footer>
   <!-- End Footer -->
 
   </body>
