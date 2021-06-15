@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 
     $sql = "SELECT * from customer_details where SNO=$from";
     $query = mysqli_query($conn,$sql);
-    $sql1 = mysqli_fetch_array($query); // returns array or output of user from which the amount is to be transferred.
+    $sql1 = mysqli_fetch_array($query); 
 
     $sql = "SELECT * from customer_details where SNO=$to";
     $query = mysqli_query($conn,$sql);
@@ -21,18 +21,18 @@ if(isset($_POST['submit']))
     if (($amount)<0)
    {
         echo '<script type="text/javascript">';
-        echo ' alert("Sorry! Negative values cannot be transferred")';  // showing an alert box.
+        echo ' alert("Sorry! Negative values cannot be transferred")';
         echo '</script>';
     }
 
 
   
     // constraint to check insufficient balance.
-    else if($amount > $sql1['balance']) 
+    else if($amount > $sql1['BALANCE']) 
     {
         
         echo '<script type="text/javascript">';
-        echo ' alert("Bad Luck! Insufficient Balance")';  // showing an alert box.
+        echo ' alert("Bad Luck! Insufficient Balance")';  
         echo '</script>';
     }
     
@@ -49,15 +49,15 @@ if(isset($_POST['submit']))
 
     else {
         
-                // deducting amount from sender's account
+                // amount deduction from sender's account
                 $newbalance = $sql1['BALANCE'] - $amount;
-                $sql = "UPDATE customer_details set BALANCE=$newbalance where id=$from";
+                $sql = "UPDATE customer_details set BALANCE=$newbalance where SNO=$from";
                 mysqli_query($conn,$sql);
              
 
                 // adding amount to reciever's account
                 $newbalance = $sql2['BALANCE'] + $amount;
-                $sql = "UPDATE customer_details set BALANCE=$newbalance where id=$to";
+                $sql = "UPDATE customer_details set BALANCE=$newbalance where SNO=$to";
                 mysqli_query($conn,$sql);
                 
                 $sender = $sql1['NAME'];
@@ -67,7 +67,7 @@ if(isset($_POST['submit']))
 
                 if($query){
                      echo "<script> alert('Transaction Successful');
-                                     window.location='transactionhistory.php';
+                                     window.location='transachistory.php';
                            </script>";
                     
                 }
@@ -85,55 +85,51 @@ if(isset($_POST['submit']))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/Homepage.css" > 
 
-    <link rel="stylesheet" href="css/style.css">
-  <title>TSF Bank</title>
-  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/table.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">        
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
   
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Roboto:wght@300&display=swap');
-  </style>
+
   </head>
   <body>
     <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">
-
-        <img src="images/logo.png" alt="logo" style="width:40px;">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=" index.php ">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#services"> Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img src="images/logo.png" alt="company logo" width="260" height="50">
+              
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              
+              <li><a href="index.html" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="customersdata.php" class="nav-link px-2 text-secondary">Transfer</a></li>
+              <li><a href="transachistory.php" class="nav-link px-2 text-white">Transaction History</a></li>
+              <li><a href="customersdata.php" class="nav-link px-2 text-white">Customers</a></li>
+              <li><a href="#contact" class="nav-link px-2 text-white">About</a></li>
+            </ul>    
+            <div class="text-end">
+              <a href="customersdata.php"><button type="button" class="btn btn-outline-light me-2">Transfer</button></a>              
+            </div>
+          </div>
+        </div>
+      </header> 
+ <br>
+     <div class="marq">
+         <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
+     </div>
 <!-- End Navbar -->
 
   <!-- Table -->
@@ -153,32 +149,17 @@ if(isset($_POST['submit']))
             <form method="post" name="tcredit" class="tabletext" ><br>
         <div>
             <table class="table table-striped table-hover">
-                <!-- <tr style="color : white;" class="table-dark">
-                    <th class="text-center">Id</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Email</th>
-                    <th class="text-center">Balance</th>
-                </tr>
-                <tr style="color : black;">
-                    <td class="py-2"><?php echo $rows['id'] ?></td>
-                    <td class="py-2"><?php echo $rows['name'] ?></td>
-                    <td class="py-2"><?php echo $rows['email'] ?></td>
-                    <td class="py-2"><?php echo $rows['balance'] ?></td>
-                </tr>  -->
+                
 
-                <tr style="color : white;" class="table-dark">
-                            <th scope="col" class="text-center py-2">SNo</th>
+                <tr style="color : white;" class="table-dark">                            
                             <th scope="col" class="text-center py-2">Name</th>
-                            <th scope="col" class="text-center py-2">E-Mail</th>
-                            <th scope="col" class="text-center py-2">Phone NO</th>
+                            <th scope="col" class="text-center py-2">E-Mail</th>                            
                             <th scope="col" class="text-center py-2">Balance</th>
                             </tr>
                         
-                    <tr style="color : black;">
-                        <td class="py-2"><?php echo $rows['SNO'] ?></td>
+                    <tr style="color : black;">                        
                         <td class="py-2"><?php echo $rows['NAME']?></td>
-                        <td class="py-2"><?php echo $rows['EMAIL']?></td>
-                        <td class="py-2"><?php echo $rows['PHONENO']?></td>
+                        <td class="py-2"><?php echo $rows['EMAIL']?></td>                        
                         <td class="py-2"><?php echo $rows['BALANCE']?></td>
                         </tr>
             </table>
@@ -198,7 +179,7 @@ if(isset($_POST['submit']))
                 }
                 while($rows = mysqli_fetch_assoc($result)) {
             ?>
-                <option class="table" value="<?php echo $rows['id'];?>" >
+                <option class="table" value="<?php echo $rows['SNO'];?>" >
                 
                     <?php echo $rows['NAME'] ;?> (Balance: 
                     <?php echo $rows['BALANCE'] ;?> ) 
@@ -223,39 +204,25 @@ if(isset($_POST['submit']))
 
     <!-- Footer -->
   
-    <footer>
-    <div class="follow">
-      <h3 style="color: black; font-family: 'Baloo Bhai 2', cursive; font-size: 25px;">Follow Us</h3>
-      <div class="social">
-        <a href="#facebook" class="facebook">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a href="#twitter" class="twitter">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a href="#linkedin" class="linkedin">
-          <i class="fa fa-linkedin"></i>
-        </a>
-        <a href="#instagram" class="instagram">
-          <i class="fa fa-instagram"></i>
-        </a>
-      </div>
+    <div class="footer">
+    <div id="contact">
+        <p id="out">
+            &#169; 2021 <emp>VISHNU</emp> 
+
+              <span id="outr">Contact Me:&nbsp; <a class="imagelink" href="https://www.linkedin.com/in/vishnu-v-88021b1b5/" target="_blank">
+                <img src="images/lnlogo.png" width=40 height=40 alt=" linkedin profile link"> 
+            </a>
+            &nbsp;
+            
+            <a class="imagelink" href="https://github.com/vishnu1881/" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=40 height=40 alt="linkedin profile link"> </a>
+            </span>
+
+          </p>
     </div>
-    <p class="text-copy">
-      Copyright &copy; 2021 All rights reserved
-    </p>
-  </footer>
+</div>
+
   <!-- End Footer -->
 
- <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

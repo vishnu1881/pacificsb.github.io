@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>PACIFIC STANDARD BANK</title>
         <link rel="stylesheet" href="css/Homepage.css" > 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">        
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -62,63 +62,88 @@ table{
       
 
       
-	<div class="header">
-     
-		<div class="navbar">
-            <a class="navlogo" href="index.html" >
-                <img src="images/logo big.svg" alt="company logo" width="350" height="60">
+<header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img src="images/logo.png" alt="company logo" width="260" height="50">
+              
             </a>
-            <a class = "navicons" href="index.html">Home</a>    
-            <a class = "navicons" href="transfer.php">Transfer</a>
-            <a class = "navicons" href="transachistory.php">Transaction History</a>
-            <a class = "navicons" href="customersdata.php">Customers</a>
-            <a class = "navicons" href="#contact">About</a>         
-            
-        </div>
-    </div>
-
-    div class="marq">
-        <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
-    </div>
     
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              
+              <li><a href="index.html" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="customersdata.php" class="nav-link px-2 text-white">Transfer</a></li>
+              <li><a href="transachistory.php" class="nav-link px-2 text-secondary">Transaction History</a></li>
+              <li><a href="customersdata.php" class="nav-link px-2 text-white">Customers</a></li>
+              <li><a href="#contact" class="nav-link px-2 text-white">About</a></li>
+            </ul>    
+            <div class="text-end">
+              <a href="customersdata.php"><button type="button" class="btn btn-outline-light me-2">Transfer</button></a>              
+            </div>
+          </div>
+        </div>
+      </header> 
+<br>
+ <div class="marq">
+     <marquee direction="left" scrolldelay=1> WELCOME TO PACIFIC STANDARD BANK</marquee>
+ </div>
 
-<?php
-$host="localhost";
-$user="root";
-$password="";
-$dbname="customers";
-$con=mysqli_connect($host,$user,$password,$dbname);
-if($con==false)
-    {
-        die("ERROR:Could not Connect.".mysqli_connect_error());
-    }
-    $sql="select * from transfer_history";
-    $query=mysqli_query($con,$sql);
-    if(!$query)
-    {
-        die("ERROR:Could not Connect.".mysqli_connect_error());
-    }
-    echo  " <br> 
-    <table>
-    <tr>
-    <th>SNo</th>
-    <th>FROM</th>
-    <th>TO</th>
-    <th>AMOUNT DEPOSITED</th>
-    <th>TIME AND DATE</th>
-</tr>";
-while ($row=mysqli_fetch_array($query)) {
 
-    echo "<tr>
-    <td>".$row['sno']."</td>
-    <td>".$row['sender']."</td>
-    <td>".$row['receiver']."</td>
-    <td>".$row['amount_dep']."</td>
-    <td>".$row['date_time']."</td>
-    </tr>";
-}
-mysqli_close($con);
+    <div class="container">
+        <h2 class="text-center pt-4" style="color : black;">Transaction History</h2>
+        
+       <br>
+
+    
+       <div class="table-responsive-sm">
+    <table class="table table-hover table-striped">
+        <thead style="color : white;" class="table-dark">
+            <tr>
+                <th class="text-center">Sender</th>
+                <th class="text-center">Receiver</th>
+                <th class="text-center">Amount</th>
+                <th class="text-center">Date & Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+
+include 'config.php';
+
+$sql ="select * from transfer_history";
+
+$query =mysqli_query($conn, $sql);
+
+while($rows = mysqli_fetch_assoc($query))
+{
 ?>
+<tr style="color : black;">
+            <td class="py-2"><?php echo $rows['sender']; ?></td>
+            <td class="py-2"><?php echo $rows['receiver']; ?></td>
+            <td class="py-2"><?php echo $rows['amount_transf']; ?> </td>
+            <td class="py-2"><?php echo $rows['date_time']; ?> </td>
+                
+        <?php
+            }
+
+        ?>
+        </tbody>
+    </table>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
 
 
 <br>

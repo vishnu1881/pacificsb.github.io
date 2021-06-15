@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>PACIFIC STANDARD BANK</title>
         <link rel="stylesheet" href="css/Homepage.css" > 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -64,20 +64,28 @@ table{
 
     </head>
     <body>
-	<div class="header">
-     
-		<div class="navbar">
-            <a class="navlogo" href="index.html" >
-                <img src="images/logo big.svg" alt="company logo" width="350" height="60">
+	 <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img src="images/logo.png" alt="company logo" width="260" height="50">
+              
             </a>
-            <a class = "navicons" href="index.html">Home</a>    
-            <a class = "navicons" href="transfer.php">Transfer</a>
-            <a class = "navicons" href="transachistory.php">Transaction History</a>
-            <a class = "navicons" href="customersdata.php">Customers</a>
-            <a class = "navicons" href="#contact">About</a>       
-            
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              
+              <li><a href="index.html" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="customersdata.php" class="nav-link px-2 text-white">Transfer</a></li>
+              <li><a href="transachistory.php" class="nav-link px-2 text-white">Transaction History</a></li>
+              <li><a href="customersdata.php" class="nav-link px-2 text-secondary">Customers</a></li>
+              <li><a href="#contact" class="nav-link px-2 text-white">About</a></li>
+            </ul>    
+            <div class="text-end">
+              <a href="customersdata.php"><button type="button" class="btn btn-outline-light me-2">Transfer</button></a>              
+            </div>
+          </div>
         </div>
-    </div>
+      </header> 
 
 <br>
     <div class="marq">
