@@ -1,5 +1,5 @@
 <?php
-	//Local Development Connection requirement
+	
 	$servername = "localhost";
 	$username = "root";
 	$password = "";

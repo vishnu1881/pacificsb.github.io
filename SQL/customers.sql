@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2021 at 06:59 PM
+-- Generation Time: Jun 16, 2021 at 04:09 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -40,16 +40,16 @@ CREATE TABLE `customer_details` (
 --
 
 INSERT INTO `customer_details` (`SNO`, `NAME`, `EMAIL`, `PHONENO`, `BALANCE`) VALUES
-(1, 'John Doe', 'johndoe121@gmail.com', 9567489856, 70000),
-(2, 'Katherine', 'katherine155561@gmail.com', 9978564232, 60000),
+(1, 'John Doe', 'johndoe121@gmail.com', 9567489856, 60000),
+(2, 'Katherine', 'katherine155561@gmail.com', 9978564232, 70000),
 (3, 'Hannah', 'hannah986@gmail.com', 7568961245, 50600),
 (4, 'Joe', 'joejin5612@gmail.com', 7456832159, 50500),
 (5, 'Tom', 'tomthefun121@gmail.com', 6589574135, 75200),
 (6, 'Jerry Smith', 'jerrysmith878@gmail.com', 5478321489, 86600),
 (7, 'Jack', 'jacknjill656@gmail.com', 7456896321, 35000),
 (8, 'Olivia', 'oliviathegirl545@gmail.com', 6543219874, 60000),
-(9, 'Raju', 'rajus8888@gmail.com', 8564123789, 32250),
-(10, 'Stephanie', 'stepahniecutie656@gmail.com', 6547231589, 65500);
+(9, 'Raju', 'rajus8888@gmail.com', 8564123789, 32500),
+(10, 'Stephanie', 'stepahniecutie656@gmail.com', 6547231589, 65250);
 
 -- --------------------------------------------------------
 
@@ -63,6 +63,13 @@ CREATE TABLE `transfer_history` (
   `amount_transf` int(11) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transfer_history`
+--
+
+INSERT INTO `transfer_history` (`sender`, `receiver`, `amount_transf`, `date_time`) VALUES
+('John Doe', 'Katherine', 10000, '2021-06-15 17:25:02');
 
 --
 -- Indexes for dumped tables
